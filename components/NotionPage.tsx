@@ -14,6 +14,7 @@ import { useSearchParam } from 'react-use'
 
 import * as config from '@/lib/config'
 import * as types from '@/lib/types'
+import Utterances from '@/components/Utterances'
 import { mapImageUrl } from '@/lib/map-image-url'
 import { getCanonicalPageUrl, mapPageUrl } from '@/lib/map-page-url'
 import { searchNotion } from '@/lib/search-notion'
@@ -200,7 +201,14 @@ export const NotionPage: React.FC<types.PageProps> = ({
     [block, recordMap, isBlogPost]
   )
 
-  const footer = React.useMemo(() => <Footer />, [])
+  const footer = React.useMemo(() => {
+    return (
+      <>
+        {isBlogPost && <Utterances issueTerm={pageId} />}
+        <Footer />
+      </>
+    )
+  }, [isBlogPost, pageId])
 
   if (router.isFallback) {
     return <Loading />
@@ -213,11 +221,12 @@ export const NotionPage: React.FC<types.PageProps> = ({
   const title = getBlockTitle(block, recordMap) || site.name
 
   console.log('notion page', {
+    isBlogPost,
     isDev: config.isDev,
     title,
     pageId,
-    rootNotionPageId: site.rootNotionPageId,
-    recordMap
+    rootNotionPageId: site.rootNotionPageId
+    // recordMap
   })
 
   if (!config.isServer) {
