@@ -63,5 +63,5 @@ export default siteConfig({
   //   }
   // ]
 
-  utterances: process.env.UTTERANCES_REPO_NAME
+  utterances: process.env.NEXT_PUBLIC_UTTERANCES_REPO_NAME
 })
