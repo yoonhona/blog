@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-import { getEnv, getSiteConfig } from '@/lib/get-config-value'
+import { getEnv } from '@/lib/get-config-value'
 
 const Utterances = ({ issueTerm }) => {
   useEffect(() => {
