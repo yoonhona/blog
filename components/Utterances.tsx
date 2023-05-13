@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-import { getSiteConfig } from '@/lib/get-config-value'
+import { getEnv, getSiteConfig } from '@/lib/get-config-value'
 
 const Utterances = ({ issueTerm }) => {
   useEffect(() => {
@@ -9,7 +9,7 @@ const Utterances = ({ issueTerm }) => {
     script.setAttribute('src', 'https://utteranc.es/client.js')
     script.setAttribute('crossorigin', 'anonymous')
     script.setAttribute('async', String(true))
-    script.setAttribute('repo', getSiteConfig('utterances'))
+    script.setAttribute('repo', getEnv('NEXT_PUBLIC_UTTERANCES_REPO_NAME'))
     script.setAttribute('issue-term', issueTerm)
     script.setAttribute('theme', 'preferred-color-scheme')
     anchor.appendChild(script)
