@@ -9,9 +9,9 @@ export default siteConfig({
   rootNotionSpaceId: null,
 
   // basic site info (required)
-  name: '호놀룰루의 개발 블로그',
+  name: '생계형 개발자의 개발 블로그',
   domain: 'honolulu.dev',
-  author: '호놀룰루',
+  author: '생계형 개발자',
 
   // open graph metadata (optional)
   description:
